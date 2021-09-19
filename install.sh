@@ -2,12 +2,15 @@
 echo "Installing AirStrike..."
 
 cp watcher.sh /usr/bin/
+ispresent(){
+ 	if command -v "$1" >/dev/null;then
+		return 0
+	else
+		return 1
+	fi
+}
 
-is_apt=$(which apt)
-not_found="not"
-echo ${is_apt} | grep --quiet "${not_found}"
-if [ $? = 1 ]
-then
+if ispresent apt;then
   apt-get -y update &> /dev/null
   apt-get -y install hashcat &> /dev/null
   apt-get -y install hashcat-utils &> /dev/null
@@ -16,11 +19,7 @@ then
   apt-get -y install hcxtools &> /dev/null
 fi
 
-is_pacman=$(which pacman)
-not_found="not"
-echo ${is_pacman} | grep --quiet "${not_found}"
-if [ $? = 1 ]
-then
+if ispresent pacman;then
   pacman -Syu
   pacman -S hashcat &> /dev/null
   pacman -S hashcat-utils &> /dev/null
@@ -29,11 +28,7 @@ then
   pacman -S hcxtools &> /dev/null
 fi
 
-is_emerge=$(which emerge)
-not_found="not"
-echo ${is_emerge} | grep --quiet "${not_found}"
-if [ $? = 1]
-then
+if ispresent emerge;then
   emaint -a sync &> /dev/null
   emerge-webrsync &> /dev/null
   eix-sync &> /dev/null
@@ -43,11 +38,7 @@ then
   emerge -a app-admin/entr &> /dev/null
 fi
 
-is_xbps=$(which xbps)
-not_found="not"
-echo ${is_xbps} | grep --quiet "${not_found}"
-if [ $? = 1 ]
-then
+if ispresent xbps-install;then
   xbps-install -Su &> /dev/null
   xbps-install hashcat &> /dev/null
   xbps-install hashcat-utils &> /dev/null
