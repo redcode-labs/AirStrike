@@ -48,7 +48,7 @@ watch_potfile(){
 }
 
 generate_client(){
-    sed "s/PORT/$port/" client_template.sh|sed "s/IP/$server_ip/"|sed "s/WORKLOAD/$workload/"|sed "s/POTFILE/$potfile/"|sed "s/OUTFILE/$outfile/"|sed "s/PASSWORD/$password/" > airstrike_client.sh
+    sed "s/PORT/$port/;s/IP/$server_ip/;s/WORKLOAD/$workload/;s/POTFILE/$potfile/;s/OUTFILE/$outfile/;s/PASSWORD/$password/" client_template.sh > airstrike_client.sh
     chmod +x airstrike_client.sh
 }
 
