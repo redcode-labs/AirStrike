@@ -39,9 +39,10 @@ if ispresent emerge;then
 fi
 
 if ispresent xbps-install;then
-  xbps-install -Su &> /dev/null
-  xbps-install hashcat &> /dev/null
-  xbps-install hashcat-utils &> /dev/null
-  xbps-install aircrack-ng &> /dev/null
-  xbps-install entr &> /dev/null
+  xbps-install -Syu &> /dev/null
+  xbps-install -y hashcat &> /dev/null
+  xbps-install -y hashcat-utils &> /dev/null
+  xbps-install -y aircrack-ng &> /dev/null
+  xbps-install -y entr &> /dev/null
+  xbps-install -y hcxtools &> /dev/null
 fi
