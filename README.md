@@ -14,7 +14,7 @@
 # Requirements
 Airstrike uses Hashcat Brain Architecture, `aircrack-ng`  suite, `entr` utility and some helper scripts.
 
-You can use `install.sh` script to download all dependencies (if you're on system which has an access to apt or pacman, but if you're using Gentoo or Void Linux, you'd have to install hcxtools by hand, they're not available in their repos, or maybe I've missed something. Some other uncommon distros are not included, for example Alpine doesn't have hashcat package, but if you're distro is exotic, you can use Nix on that, all needed packages are in nixpkgs.)
+You can use `install.sh` script to download all dependencies (if you're on system which has an access to apt or pacman, but if you're using Gentoo, you'd have to install hcxtools by hand, they're not available in their repos, or maybe I've missed something. Some other uncommon distros are not included, for example Alpine doesn't have hashcat package, but if you're distro is exotic, you can use Nix on that, all needed packages are in nixpkgs.)
 
 If you're using Nix/NixOS, you can jump into Nix-Shell with needed dependencies with:
 `nix-shell -p hashcat hashcat-utils aircrack-ng entr hcxtools`
